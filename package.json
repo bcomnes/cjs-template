@@ -10,7 +10,7 @@
   "devDependencies": {
     "auto-changelog": "^2.2.0",
     "dependency-check": "^4.1.0",
-    "gh-release": "^4.0.0",
+    "gh-release": "^6.0.0",
     "npm-run-all2": "^5.0.0",
     "standard": "^16.0.2",
     "tap": "^14.10.8"
