@@ -3,6 +3,7 @@
 [![Actions Status](https://github.com/bcomnes/{{name}}/workflows/tests/badge.svg)](https://github.com/bcomnes/{{name}}/actions)
 [![Coverage Status](https://coveralls.io/repos/github/bcomnes/{{name}}/badge.svg?branch=master)](https://coveralls.io/github/bcomnes/{{name}}?branch=master)
 [![downloads](https://img.shields.io/npm/dm/{{name}}.svg)](https://npmtrends.com/{{name}})
+[![Socket Badge](https://socket.dev/api/badge/npm/package/{{name}})](https://socket.dev/npm/package/{{name}})
 
 WIP - nothing to see here
 
