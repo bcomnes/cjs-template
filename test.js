@@ -1,6 +1,8 @@
-const tap = require('tap')
+const test = require('node:test')
+const assert = require('node:assert')
 const { foo } = require('./index')
 
-tap.test('a test', async t => {
-  t.equal(foo, 'bar')
+test('index export', async (t) => {
+  assert.strictEqual(foo(), 'world', 'A message')
 })
+

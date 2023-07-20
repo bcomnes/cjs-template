@@ -13,7 +13,6 @@
     "gh-release": "^7.0.2",
     "npm-run-all2": "^6.0.4",
     "standard": "^17.0.0",
-    "tap": "^16.3.4",
     "c8": "^8.0.0"
   },
   "homepage": "https://github.com/bcomnes/{{name}}",
@@ -29,7 +28,7 @@
     "test": "run-s test:*",
     "test:deps": "dependency-check . --no-dev --no-peer",
     "test:standard": "standard",
-    "test:tap": "METRICS=0 c8 tap --no-coverage --color",
+    "test:node-test": "c8 node --test --test-reporter spec",
     "version": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md"
   },
   "standard": {
