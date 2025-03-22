@@ -8,7 +8,6 @@ on:
         required: true
 
 env:
-  node_version: 'lts/*'
   FORCE_COLOR: 1
   
 concurrency: # prevent concurrent releases
@@ -26,7 +25,7 @@ jobs:
     - name: Use Node.js ${{ env.node_version }}
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ env.node_version }}
+        node-version-file: package.json
         # setting a registry enables the NODE_AUTH_TOKEN env variable where we can set an npm token.  REQUIRED
         registry-url: 'https://registry.npmjs.org'
     - run: npm i
