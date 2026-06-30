@@ -40,12 +40,14 @@ jobs:
 
   automerge:
     needs: test
+    if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' && startsWith(github.head_ref, 'dependabot/github_actions/actions/') }}
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
       contents: write
     steps:
-      - uses: fastify/github-action-merge-dependabot@v3
-        if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' && startsWith(github.head_ref, 'dependabot/github_actions/actions/') }}
-        with:
-          github-token: ${{secrets.github_token}}
+      - name: Merge first-party GitHub Actions Dependabot PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge "$PR_URL" --squash --delete-branch
