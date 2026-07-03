@@ -1,0 +1,7 @@
+version = 1
+name = "CommonJS Template"
+
+[setup]
+script = '''
+sh .codex/setup-worktree.sh
+'''
