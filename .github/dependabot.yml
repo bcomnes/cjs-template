@@ -6,6 +6,8 @@ updates:
     # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 1
     ignore:
       - dependency-name: "*"
         update-types:
@@ -15,3 +17,5 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 1
