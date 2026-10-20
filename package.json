@@ -8,12 +8,9 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "auto-changelog": "^2.2.0",
-    "dependency-check": "^4.1.0",
-    "gh-release": "^8.1.0",
     "npm-run-all2": "^9.0.0",
-    "standard": "^17.0.0",
-    "c8": "^11.0.0"
+    "releasearoni": "^0.2.0",
+    "standard": "^17.0.0"
   },
   "homepage": "https://github.com/bcomnes/{{name}}",
   "keywords": [],
@@ -24,16 +21,15 @@
     "url": "https://github.com/bcomnes/{{name}}.git"
   },
   "engines": {
-    "node": ">20",
-    "npm": ">10"
+    "node": ">=24",
+    "npm": ">=11"
   },
   "scripts": {
-    "prepublishOnly": "git push --follow-tags && gh-release -y",
+    "prepublishOnly": "releasearoni",
     "test": "run-s test:*",
-    "test:deps": "dependency-check . --no-dev --no-peer",
     "test:standard": "standard",
-    "test:node-test": "c8 node --test --test-reporter spec",
-    "version": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md"
+    "test:node-test": "node --experimental-test-coverage --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=lcov.info --test",
+    "version": "releasearoni version"
   },
   "standard": {
     "ignore": [
@@ -43,11 +39,5 @@
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/bcomnes"
-  },
-  "c8": {
-    "reporter": [
-      "lcov",
-      "text"
-    ]
   }
 }
